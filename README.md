@@ -80,5 +80,14 @@ It is possible to develop custom Android apps for supported cameras. Keep in min
 
 There are a few special Sony APIs which allow you to take advantage of the features of your camera. They can be used through [*OpenMemories: Framework*](https://github.com/ma1co/OpenMemories-Framework).
 
+## For those who have an A7III / ILCE-7M3 / A7M3 and struggled to unlock the video recording limit on firmware above 4.01:
+All exe files can be found in the cmd folder. 
+1. Download the older Zadig 2.7 from [Zadig](https://zadig.akeo.ie/). This is essential, as it installs the libusb-win32 driver with version 1.2.6.0. You can find one in the cmd folder.
+2. You can download the correct file from cmd folder named pcma-console.exe, place it somewhere you can easy navigate to in the console / cmd. (I hope you are familiar with commands like cd, cd.. and so on). Open Terminal and then just run ```pcma-console.exe serviceshell```
+3. Once the camera is put into service mode, you will see a device in Zadig called "Sony USB device". If not already done, you also need install the libusb-win32 v1.2.6.0 driver here too.
+If at any point you have used another version of zadig, it is likely you have a newer version of libusb installed like 1.4.0.0, which is incompatible. You need to connect the camera, and uninstall and delete the newer driver, then reboot. Connect the camera again and check that the newer driver has been removed. Then reinstall the 1.2.6.0 driver.
+If at any point you need to force the camera to enter (and STAY) in service mode, so you can uninstall/install drivers for the Sony USB device, you can use the command prompt version of PMCA with command "pmca-console.exe serviceshell" to enter service mode.
+4. Now use the pmca-gui v18-22-ga82f5ba.exe file, NOT the v18 in the releases on this repo, as the one on this repo will not offer you the service mode tweaking, which is required for the A7III.
+
 ## Special thanks
 Without the work done by the people at [nex-hack](http://www.personal-view.com/faqs/sony-hack/hack-development), this wouldn't have been possible. Thanks a lot!
